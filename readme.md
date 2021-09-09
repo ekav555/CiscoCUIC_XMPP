@@ -1,6 +1,9 @@
 ﻿**Introduction**
 
-The following project will explain how to connect to Cisco UCCX Realtime Notification Service and not rely on using 3rd party pay ware such as Matrix.Xmpp.Net. We will build a Microsoft .NET Console Application and used a 3rd party free library created by Smiley22. There was a lot of debugging needed to make things work. There was also two main code changes required inside Smiley22 Project.
+The following project will explain how to connect to Cisco UCCX Realtime Notification Service and not rely on using 3rd party pay ware such as Matrix.Xmpp.Net. 
+We will build a Microsoft .NET Console Application and used a 3rd party free library created by Smiley22. 
+There was a lot of debugging needed to make things work. There was also two main code changes required inside Smiley22 Project. I quickly compiled this with not a lot of planning, but just to get a working example for the community.
+Forgive the poor coding/error handling on my part :)
 
 At a high level, we needed to change two things. 
 
