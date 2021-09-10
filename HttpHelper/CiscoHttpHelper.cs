@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -22,14 +23,14 @@ namespace CiscoCUIC_XMPP
             HttpRequestMessage req = null;
             HttpResponseMessage res = null;
             HttpContent BodyContent = null;
-            string username = Properties.Settings.Default.Username;
-            string password = Properties.Settings.Default.Password;
+            string username = ConfigurationManager.AppSettings["APIUserName"];
+            string password = ConfigurationManager.AppSettings["APIPassword"];
 
             //SOME API CALLS CAN ONLY BE DONE BY THE USER WHO OWNS THE ACTIVE CALL
-            if(useLocalCreds)
+            if (useLocalCreds)
             {
-                username = Properties.Settings.Default.LocalUser;
-                password = Properties.Settings.Default.LocalPassword;
+                username = ConfigurationManager.AppSettings["LocalUsername"];
+                password = ConfigurationManager.AppSettings["LocalPassword"];
             }
 
             if (!string.IsNullOrWhiteSpace(url))
@@ -84,38 +85,38 @@ namespace CiscoCUIC_XMPP
 
         public string GetUsers()
         {
-            var response = SendAsync("GET", null, $"http://{Properties.Settings.Default.Hostname}:8082/finesse/api/Users");
+            var response = SendAsync("GET", null, $"http://{ConfigurationManager.AppSettings["Hostname"]}:8082/finesse/api/Users");
             return response.Content.ReadAsStringAsync().Result;
         }
 
         public string GetUser(string UserID)
         {
-            var response = SendAsync("GET", null, $"http://{Properties.Settings.Default.Hostname}:8082/finesse/api/User/{UserID}");
+            var response = SendAsync("GET", null, $"http://{ConfigurationManager.AppSettings["Hostname"]}:8082/finesse/api/User/{UserID}");
             return response.Content.ReadAsStringAsync().Result;
         }
 
         public string GetSystemInfo()
         {
-            var response = SendAsync("GET", null, $"http://{Properties.Settings.Default.Hostname}:8082/finesse/api/SystemInfo");
+            var response = SendAsync("GET", null, $"http://{ConfigurationManager.AppSettings["Hostname"]}:8082/finesse/api/SystemInfo");
             return response.Content.ReadAsStringAsync().Result;
         }
 
         public string GetTeam(string TeamID)
         {
-            var response = SendAsync("GET", null, $"http://{Properties.Settings.Default.Hostname}:8082/finesse/api/Team/{TeamID}");
+            var response = SendAsync("GET", null, $"http://{ConfigurationManager.AppSettings["Hostname"]}:8082/finesse/api/Team/{TeamID}");
             return response.Content.ReadAsStringAsync().Result;
         }
 
         public string GetTeams()
         {
-            var response = SendAsync("GET", null, $"http://{Properties.Settings.Default.Hostname}:8082/finesse/api/Teams");
+            var response = SendAsync("GET", null, $"http://{ConfigurationManager.AppSettings["Hostname"]}:8082/finesse/api/Teams");
             return response.Content.ReadAsStringAsync().Result;
         }
 
         public void UpdateDialog(string dialogID, string xml)
         {
             Console.WriteLine(xml);
-            var response = SendAsync("PUT", xml, $"http://{Properties.Settings.Default.Hostname}:8082/finesse/api/Dialog/{dialogID}", true);
+            var response = SendAsync("PUT", xml, $"http://{ConfigurationManager.AppSettings["Hostname"]}:8082/finesse/api/Dialog/{dialogID}", true);
         }
     }
 }

@@ -44,9 +44,7 @@ namespace CiscoCUIC_XMPP
         private static void subscribeToQueueEvents()
         {
             //READ THE CISCO DOCS
-            string topic = "/finesse/api/Team/26/Users";
-            //string topic = "/finesse/api/Team/29/Users";
-            var sresult = subscribe(IqType.Get, _to, _client.Jid.ToString(), topic);
+            var sresult = subscribe(IqType.Get, _to, _client.Jid.ToString(), _topicEndpointURL);
         }
 
         static void SetupXmpp()
