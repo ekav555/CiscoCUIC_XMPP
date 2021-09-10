@@ -98,3 +98,6 @@ private static Iq subscribe(IqType type, string to, string from, string topic)
     return _server.IqRequest(IqType.Set, to, from, pubsub2);
 }
 ```
+**Console Log will look like this**
+
+![image](https://user-images.githubusercontent.com/36309818/132777756-22554e1e-1d58-485f-8da6-e8809fc33571.png)
