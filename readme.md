@@ -11,7 +11,7 @@ At a high level, we needed to change two things.
 
 https://developer.cisco.com/docs/finesse/#!about-cisco-finesse-notifications
 
-https://www.cisco.com/c/en/us/support/docs/customer-collaboration/unified-contact-center-express-1151/211376-Technote-o
+https://www.cisco.com/c/en/us/support/docs/customer-collaboration/unified-contact-center-express-1151/211376-Technote-on-How-Bosh-Connection-Works-fo.html#anc6
 
 
 **Step/Modification 1 (Subscribing to Events)**
