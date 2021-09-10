@@ -7,6 +7,11 @@ Forgive the poor coding/error handling on my part :)
 
 At a high level, we needed to change two things. 
 
+**Cisco References**
+
+https://developer.cisco.com/docs/finesse/#!about-cisco-finesse-notifications
+
+https://www.cisco.com/c/en/us/support/docs/customer-collaboration/unified-contact-center-express-1151/211376-Technote-o
 
 
 **Step/Modification 1 (Subscribing to Events)**
